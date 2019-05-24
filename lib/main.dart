@@ -5,6 +5,7 @@ import 'Demo/listView_demo.dart';
 import 'Demo/container_demo.dart';
 import 'Demo/layout_demo.dart';
 import 'Demo/page_view_demo.dart';
+import 'Demo/sliver_demo.dart';
 
 
 void main() => runApp(RootApp());
@@ -27,8 +28,10 @@ class RootPage extends StatelessWidget {
         highlightColor: Colors.white30,
         splashColor: Colors.white12
       ),
-      home: HomePage(),
+      home: SliverDemo(),
+//      home: HomePage(),
     );
+
   }
 }
 
