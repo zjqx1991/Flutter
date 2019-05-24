@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'Demo/listView_demo.dart';
 import 'Demo/drawer_demo.dart';
+import 'Demo/bottom_navigation_bar.dart';
 
 
 void main() => runApp(RootApp());
@@ -29,6 +29,7 @@ class RootPage extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
+
 
   @override
   Widget build(BuildContext context) {
@@ -93,8 +94,8 @@ class HomePage extends StatelessWidget {
 
             ],
           ),
-
-
+          //4、TabBarBottom
+          bottomNavigationBar: BottomNavigationBarDemo(),
         )
     );
   }
