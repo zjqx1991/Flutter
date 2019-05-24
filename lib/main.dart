@@ -3,6 +3,7 @@ import 'Demo/drawer_demo.dart';
 import 'Demo/bottom_navigation_bar.dart';
 import 'Demo/listView_demo.dart';
 import 'Demo/container_demo.dart';
+import 'Demo/layout_demo.dart';
 
 
 void main() => runApp(RootApp());
@@ -80,11 +81,7 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               ListViewDemo(),
               ContainerDemo(),
-              Icon(
-                Icons.directions_bike,
-                size: 150.0,
-                color: Colors.black12,
-              )
+              LayoutDemo()
 
             ],
           ),
