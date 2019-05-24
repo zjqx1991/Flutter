@@ -4,6 +4,7 @@ import 'Demo/bottom_navigation_bar.dart';
 import 'Demo/listView_demo.dart';
 import 'Demo/container_demo.dart';
 import 'Demo/layout_demo.dart';
+import 'Demo/page_view_demo.dart';
 
 
 void main() => runApp(RootApp());
@@ -38,7 +39,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
         initialIndex: 0,
-        length: 3,
+        length: 4,
         child: Scaffold(
           //1、导航栏
           appBar: AppBar(
@@ -69,7 +70,8 @@ class HomePage extends StatelessWidget {
                 tabs:[
                   Tab(icon: Icon(Icons.local_florist),),
                   Tab(icon: Icon(Icons.change_history),),
-                  Tab(icon: Icon(Icons.directions_bike),)
+                  Tab(icon: Icon(Icons.directions_bike),),
+                  Tab(icon: Icon(Icons.view_comfy),)
                 ],
             ),
 
@@ -81,8 +83,8 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               ListViewDemo(),
               ContainerDemo(),
-              LayoutDemo()
-
+              LayoutDemo(),
+              PageViewDemo()
             ],
           ),
           //4、TabBarBottom
