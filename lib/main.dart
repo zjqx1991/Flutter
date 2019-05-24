@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'Demo/drawer_demo.dart';
 import 'Demo/bottom_navigation_bar.dart';
+import 'Demo/listView_demo.dart';
+import 'Demo/container_demo.dart';
 
 
 void main() => runApp(RootApp());
@@ -34,7 +36,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        initialIndex: 1,
+        initialIndex: 0,
         length: 3,
         child: Scaffold(
           //1、导航栏
@@ -76,16 +78,8 @@ class HomePage extends StatelessWidget {
           //3、中间内容
           body: TabBarView(
             children: <Widget>[
-              Icon(
-                Icons.local_florist,
-                size: 150,
-                color: Colors.black12,
-              ),
-              Icon(
-                Icons.change_history,
-                size: 150.0,
-                color: Colors.black12,
-              ),
+              ListViewDemo(),
+              ContainerDemo(),
               Icon(
                 Icons.directions_bike,
                 size: 150.0,

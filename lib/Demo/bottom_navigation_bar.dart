@@ -11,7 +11,7 @@ class BottomNavigationBarDemo extends StatefulWidget {
 class _BottomNavigationBarDemoState extends State<BottomNavigationBarDemo> {
 
 
-  int _currentSelectIndex = 1;
+  int _currentSelectIndex = 0;
 
   void _onTapChange(int index){
     setState(() {
