@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Demo/listView_demo.dart';
+import 'Demo/drawer_demo.dart';
 
 
 void main() => runApp(RootApp());
@@ -35,16 +36,17 @@ class HomePage extends StatelessWidget {
         initialIndex: 1,
         length: 3,
         child: Scaffold(
+          //1、导航栏
           appBar: AppBar(
             title: Text('Revan'),
             elevation: 0,//设置导航条的投影
-            //左侧导航条按钮
-            leading: IconButton(
-                icon: Icon(Icons.menu), 
-                onPressed: (){
-                  debugPrint("点击：导航条——菜单");
-                }
-            ),
+            //左侧导航条按钮（和drawer冲突）
+//            leading: IconButton(
+//                icon: Icon(Icons.menu),
+//                onPressed: (){
+//                  debugPrint("点击：导航条——菜单");
+//                }
+//            ),
             //右侧导航条按钮
             actions: <Widget>[
               IconButton(
@@ -66,7 +68,11 @@ class HomePage extends StatelessWidget {
                   Tab(icon: Icon(Icons.directions_bike),)
                 ],
             ),
+
           ),
+          //2、抽屉
+          drawer: DrawerDemo(),
+          //3、中间内容
           body: TabBarView(
             children: <Widget>[
               Icon(
@@ -87,6 +93,8 @@ class HomePage extends StatelessWidget {
 
             ],
           ),
+
+
         )
     );
   }
