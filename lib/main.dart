@@ -28,8 +28,8 @@ class RootPage extends StatelessWidget {
         highlightColor: Colors.white30,
         splashColor: Colors.white12
       ),
-      home: SliverDemo(),
-//      home: HomePage(),
+//      home: SliverDemo(),
+      home: HomePage(),
     );
 
   }
