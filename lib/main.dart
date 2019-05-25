@@ -5,7 +5,7 @@ import 'Demo/listView_demo.dart';
 import 'Demo/container_demo.dart';
 import 'Demo/layout_demo.dart';
 import 'Demo/page_view_demo.dart';
-import 'Demo/sliver_demo.dart';
+import 'Demo/form_demo.dart';
 
 
 void main() => runApp(RootApp());
@@ -29,7 +29,12 @@ class RootPage extends StatelessWidget {
         splashColor: Colors.white12
       ),
 //      home: SliverDemo(),
-      home: HomePage(),
+//      home: HomePage(),
+      initialRoute: '/form',  //设置根路由为'/'
+      routes: {
+        '/':(context) => HomePage(),//设置根路由为 HomePage()
+        '/form': (context) => FormDemo(),
+      },
     );
 
   }
