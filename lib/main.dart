@@ -6,6 +6,7 @@ import 'Demo/container_demo.dart';
 import 'Demo/layout_demo.dart';
 import 'Demo/page_view_demo.dart';
 import 'Demo/form_demo.dart';
+import 'Demo/buttons_demo.dart';
 
 
 void main() => runApp(RootApp());
@@ -30,10 +31,12 @@ class RootPage extends StatelessWidget {
       ),
 //      home: SliverDemo(),
 //      home: HomePage(),
-      initialRoute: '/form',  //设置根路由为'/'
+      initialRoute: '/buttons',  //设置根路由为'/'
       routes: {
+
         '/':(context) => HomePage(),//设置根路由为 HomePage()
         '/form': (context) => FormDemo(),
+        '/buttons': (context) => ButtonsDemo(),
       },
     );
 
