@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'dart:async';
-
+import 'dart:convert';
 
 class HttpDemo extends StatelessWidget {
   @override
@@ -24,21 +23,105 @@ class _HttpDemoHome extends StatefulWidget {
 
 class _HttpDemoHomeState extends State<_HttpDemoHome> {
 
-  fetchPost() async {
+  Future<List<Post>> fetchPosts() async {
     final response = await http.get('https://resources.ninghao.net/demo/posts.json');
-    print('${response.body}');
+    if (200 == response.statusCode) {
+      final responseBody = json.decode(response.body);
+
+      List postList = responseBody['posts'];
+
+      List<Post> posts = postList.map(
+          (item) => Post.fromJson(item)
+      ).toList();
+      return posts;
+    }
   }
 
   @override
   void initState() {
     super.initState();
-    fetchPost();
+//    fetchPosts();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.purple,
+//    return Center();
+    return FutureBuilder(
+      future: fetchPosts(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+        
+        
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: Text('loading...'),
+            );
+          }
+          
+          List<Post> postList = snapshot.data;
+          return ListView.builder(
+            itemCount: postList.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(postList[index].title),
+                  subtitle: Text(
+                    postList[index].description,
+                    maxLines: 2,
+                  ),
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(postList[index].imageUrl),
+                  ),
+                );
+              }
+          );
+          return ListView(
+            children: List(snapshot.data).map<Widget>(
+                    (post) {
+                  return ListTile(
+                    title: Text(post.title),
+                    subtitle: Text(post.description),
+                    leading: CircleAvatar(
+                      backgroundImage: NetworkImage(post.imageUrl),
+                    ),
+                  );
+                }
+            ).toList(),
+          );
+        }
     );
   }
+}
+
+
+/**************    模型数据     ***************/
+
+class Post {
+  final int id;
+  final String title;
+  final String description;
+  final String author;
+  final String imageUrl;
+
+  //构造函数
+  Post(
+      this.id,
+      this.title,
+      this.description,
+      this.author,
+      this.imageUrl
+      );
+
+  Post.fromJson(Map json)
+  :
+        id = json['id'],
+        title = json['title'],
+        description = json['description'],
+        author = json['author'],
+        imageUrl = json['imageUrl'];
+
+
+  Map toJson() => {
+    'title': title,
+    'description': description
+  };
+
 }
