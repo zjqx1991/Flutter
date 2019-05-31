@@ -57,28 +57,31 @@ class _HttpDemoHomeState extends State<_HttpDemoHome> {
             );
           }
           
-          List<Post> postList = snapshot.data;
-          return ListView.builder(
-            itemCount: postList.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(postList[index].title),
-                  subtitle: Text(
-                    postList[index].description,
-                    maxLines: 2,
-                  ),
-                  leading: CircleAvatar(
-                    backgroundImage: NetworkImage(postList[index].imageUrl),
-                  ),
-                );
-              }
-          );
+//          List<Post> postList = snapshot.data;
+//          return ListView.builder(
+//            itemCount: postList.length,
+//              itemBuilder: (context, index) {
+//                return ListTile(
+//                  title: Text(postList[index].title),
+//                  subtitle: Text(
+//                    postList[index].description,
+//                    maxLines: 2,
+//                  ),
+//                  leading: CircleAvatar(
+//                    backgroundImage: NetworkImage(postList[index].imageUrl),
+//                  ),
+//                );
+//              }
+//          );
           return ListView(
-            children: List(snapshot.data).map<Widget>(
+            children: snapshot.data.map<Widget>(
                     (post) {
                   return ListTile(
                     title: Text(post.title),
-                    subtitle: Text(post.description),
+                    subtitle: Text(
+                        post.description,
+                      maxLines: 2,
+                    ),
                     leading: CircleAvatar(
                       backgroundImage: NetworkImage(post.imageUrl),
                     ),
