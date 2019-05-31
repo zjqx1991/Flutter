@@ -9,6 +9,7 @@ import 'Demo/form_demo.dart';
 import 'Demo/buttons_demo.dart';
 import 'Demo/http_demo.dart';
 import 'Demo/stream_demo.dart';
+import 'Demo/rxdart_demo.dart';
 
 
 void main() => runApp(RootApp());
@@ -33,7 +34,7 @@ class RootPage extends StatelessWidget {
       ),
 //      home: SliverDemo(),
 //      home: HomePage(),
-      initialRoute: '/stream',  //设置根路由为'/'
+      initialRoute: '/rxdart',  //设置根路由为'/'
       routes: {
 
         '/':(context) => HomePage(),//设置根路由为 HomePage()
@@ -41,6 +42,7 @@ class RootPage extends StatelessWidget {
         '/buttons': (context) => ButtonsDemo(),
         '/http':(context) => HttpDemo(),
         '/stream':(context) => StreamDemo(),
+        '/rxdart':(context) => RxdartDemo(),
       },
     );
 
